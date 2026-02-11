@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
       <div className="w-full max-w-none px-6 md:px-12 lg:px-16 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center">
           <div className="flex items-baseline">
-            <span className="text-base font-black text-primary tracking-tight">365Health</span>
+            <span className="text-base font-black tracking-tight"><span className="text-primary">365</span><span className="text-dark-text">Health</span></span>
             <span className="text-base font-medium text-dark-text ml-1">Systems</span>
           </div>
         </a>
