@@ -3,15 +3,9 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-<<<<<<< HEAD
     <section className="relative pt-28 md:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-20 px-4 md:px-6 hero-gradient overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
         <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
-=======
-    <section className="relative pt-48 pb-32 px-6 hero-gradient overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        <div className="flex flex-col gap-8">
->>>>>>> d3878f6ee2b545463ed5407d8ce5f758ec9bf2e7
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest w-fit border border-primary/10">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -20,7 +14,6 @@ const Hero: React.FC = () => {
             Next-Gen Healthcare Infrastructure
           </div>
           
-<<<<<<< HEAD
           <h1 className="text-[2.5rem] leading-[1.1] md:text-4xl lg:text-5xl xl:text-7xl md:leading-[1] font-black tracking-tight text-dark-text">
             Infrastructure for modern <span className="text-primary">healthcare</span> operations
           </h1>
@@ -159,45 +152,6 @@ const Hero: React.FC = () => {
               <div>
                 <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-dark-text/40 uppercase tracking-widest">Growth</p>
                 <p className="text-[11px] md:text-xs lg:text-sm font-black text-dark-text">+24.8%</p>
-=======
-          <h1 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight text-dark-text">
-            Infrastructure for modern <span className="text-primary">healthcare</span> operations
-          </h1>
-          
-          <p className="text-lg text-dark-text/60 leading-relaxed max-w-xl">
-            Revolutionizing pharmacy tech, advanced healthcare analytics, and scalable digital infrastructure for the modern era. Unified systems for a connected care world.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 pt-4">
-            <button className="flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-secondary transition-all shadow-xl shadow-primary/20">
-              Get Started
-              <span className="material-symbols-outlined text-xl">arrow_forward</span>
-            </button>
-            <button className="px-8 py-4 bg-white border border-gray-200 text-dark-text rounded-xl font-bold text-lg hover:bg-gray-50 transition-all">
-              Request Demo
-            </button>
-          </div>
-        </div>
-        
-        <div className="relative group hidden lg:block">
-          <div className="absolute -inset-10 bg-primary/20 rounded-full blur-[100px] opacity-40"></div>
-          <div className="relative bg-[#0a2e31] p-10 rounded-[2.5rem] shadow-2xl transition-transform hover:-translate-y-2 duration-700">
-            <div className="w-full aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center p-6">
-               <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2ZPBLKQOCZGnvTLum8oAAKZisRUIQRJrWyJku9TNelsk-T6L4z19g3igye5O3OcjE8X9JfGsD7pA5gJR-rWi4_TS833iz1lo7LgyeN1Ht2mHJeXsgKq8ndKHyQJ5yIffTVl1DZ4_KUxnFdggSk-ngilbM6gDth9tmcQlviOb1CaVSi10XH48ejgWltfYsnGNXMKi-Z4dJNuGKwUvMJM2I8O0TMN0gW8rWd_zI2VeEJMV45ZR-a2g3zhdIxnRPr9uLZB-_fcDfz5U" 
-                alt="365Health Operations Dashboard" 
-                className="w-full h-full object-cover rounded-lg shadow-inner"
-              />
-            </div>
-            {/* Floating indicator */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">analytics</span>
-              </div>
-              <div>
-                <p className="text-[10px] font-bold text-dark-text/40 uppercase tracking-widest">Growth</p>
-                <p className="text-sm font-black text-dark-text">+24.8% Efficiency</p>
->>>>>>> d3878f6ee2b545463ed5407d8ce5f758ec9bf2e7
               </div>
             </div>
           </div>

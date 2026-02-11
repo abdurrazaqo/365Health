@@ -67,7 +67,7 @@ const AboutUs: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 pt-8">
             <div className="border border-gray-200 rounded-2xl p-6 md:p-8">
               <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Founded</p>
-              <div className="text-3xl md:text-4xl font-black text-primary mb-2">2024</div>
+              <div className="text-3xl md:text-4xl font-black text-primary mb-2">2026</div>
               <p className="text-sm text-dark-text/60">Building next-gen healthcare tech</p>
             </div>
             <div className="border border-gray-200 rounded-2xl p-6 md:p-8">

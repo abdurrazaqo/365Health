@@ -2,13 +2,8 @@
 import React from 'react';
 
 const partners = [
-<<<<<<< HEAD
   { name: 'Manga Health', icon: 'local_pharmacy' },
   { name: 'Muri Surgicals', icon: 'emergency' },
-=======
-  { name: 'HealthPlus', icon: 'local_pharmacy' },
-  { name: 'CityClinic', icon: 'emergency' },
->>>>>>> d3878f6ee2b545463ed5407d8ce5f758ec9bf2e7
   { name: 'Metropital', icon: 'domain' },
   { name: 'PharmaDirect', icon: 'vaccines' },
   { name: 'GlobalCare', icon: 'medication' },
@@ -16,7 +11,6 @@ const partners = [
 
 const TrustedBy: React.FC = () => {
   return (
-<<<<<<< HEAD
     <section className="py-12 md:py-16 border-y border-primary/5 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#101818]/40 mb-8 md:mb-10">
@@ -46,20 +40,6 @@ const TrustedBy: React.FC = () => {
               </div>
             ))}
           </div>
-=======
-    <section className="py-16 border-y border-primary/5 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#101818]/40 mb-10">
-          Trusted by industry-leading providers
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all">
-          {partners.map((partner) => (
-            <div key={partner.name} className="flex items-center gap-2 text-xl font-bold cursor-default hover:text-primary transition-colors">
-              <span className="material-symbols-outlined text-primary">{partner.icon}</span> 
-              {partner.name}
-            </div>
-          ))}
->>>>>>> d3878f6ee2b545463ed5407d8ce5f758ec9bf2e7
         </div>
       </div>
     </section>
