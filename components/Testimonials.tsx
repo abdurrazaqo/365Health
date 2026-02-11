@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Testimonial } from '../types';
 
 const testimonials: Testimonial[] = [
@@ -24,13 +24,55 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials: React.FC = () => {
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = cardRefs.current.map((card, index) => {
+      if (!card) return null;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisibleCards(prev => {
+                const newState = [...prev];
+                newState[index] = true;
+                return newState;
+              });
+            }, index * 200); // Stagger delay
+          }
+        },
+        { threshold: 0.2 }
+      );
+      
+      observer.observe(card);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer, index) => {
+        if (observer && cardRefs.current[index]) {
+          observer.unobserve(cardRefs.current[index]!);
+        }
+      });
+    };
+  }, []);
+
   return (
     <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-12 md:mb-16 lg:mb-20 tracking-tight text-dark-text">Voices from the field</h2>
         <div className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="p-6 md:p-8 lg:p-10 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300">
+            <div 
+              key={i} 
+              ref={el => cardRefs.current[i] = el}
+              className={`p-6 md:p-8 lg:p-10 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 transform ${
+                visibleCards[i] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+              style={{ transition: 'all 0.6s ease-out' }}
+            >
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-xs md:text-sm">
                   {t.initials}

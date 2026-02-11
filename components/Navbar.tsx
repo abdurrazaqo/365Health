@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
         <a href="#" className="flex items-center">
           <div className="flex items-baseline">
             <span className="text-base font-black text-primary tracking-tight">365Health</span>
-            <span className="text-base font-medium text-dark-text ml-1 hidden sm:inline">Systems</span>
+            <span className="text-base font-medium text-dark-text ml-1">Systems</span>
           </div>
         </a>
         
@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
         </div>
         
         <div className="flex items-center gap-4">
-          <a href="#cta" className="bg-primary hover:bg-secondary text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-primary/20 active:scale-95 inline-block text-center">
+          <a href="#cta" className="bg-primary hover:bg-secondary text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-all shadow-lg shadow-primary/20 active:scale-95 inline-block text-center">
             Get Started
           </a>
         </div>
