@@ -3,13 +3,13 @@ import React from 'react';
 const Navbar: React.FC = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="flex items-center">
+      <div className="w-full max-w-none px-6 md:px-12 lg:px-16 h-16 flex items-center justify-between">
+        <a href="#" className="flex items-center">
           <div className="flex items-baseline">
-            <span className="text-xl font-black text-primary tracking-tight">365Health</span>
-            <span className="text-xl font-medium text-dark-text ml-1 hidden sm:inline">Systems</span>
+            <span className="text-base font-black text-primary tracking-tight">365Health</span>
+            <span className="text-base font-medium text-dark-text ml-1 hidden sm:inline">Systems</span>
           </div>
-        </div>
+        </a>
         
         <div className="hidden md:flex items-center gap-10 ml-auto mr-10">
           <a href="#products" className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Products</a>

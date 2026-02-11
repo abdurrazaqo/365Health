@@ -11,8 +11,8 @@ const partners = [
 
 const TrustedBy: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 border-y border-primary/5 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+    <section className="py-12 md:py-16 px-6 md:px-12 lg:px-16 border-y border-primary/5 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto text-center">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#101818]/40 mb-8 md:mb-10">
           Trusted by industry-leading providers
         </p>

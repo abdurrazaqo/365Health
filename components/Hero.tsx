@@ -3,8 +3,8 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative pt-28 md:pt-32 lg:pt-36 pb-12 md:pb-16 lg:pb-20 px-4 md:px-6 hero-gradient overflow-hidden">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+    <section className="relative pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-16 lg:pb-20 px-6 md:px-12 lg:px-16 hero-gradient overflow-hidden">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
         <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest w-fit border border-primary/10">
             <span className="relative flex h-2 w-2">
@@ -14,12 +14,12 @@ const Hero: React.FC = () => {
             Next-Gen Healthcare Infrastructure
           </div>
           
-          <h1 className="text-[2.5rem] leading-[1.1] md:text-4xl lg:text-5xl xl:text-7xl md:leading-[1] font-black tracking-tight text-dark-text">
+          <h1 className="text-[2rem] leading-[0.95] md:text-3xl lg:text-4xl xl:text-5xl md:leading-[0.95] font-black tracking-tight text-dark-text">
             Infrastructure for modern <span className="text-primary">healthcare</span> operations
           </h1>
           
           <p className="text-sm md:text-base lg:text-lg text-dark-text/60 leading-relaxed max-w-xl">
-            Revolutionizing healthcare with advanced analytics, and scalable digital infrastructure for the modern era. Unified systems for a connected care world.
+            Revolutionizing healthcare with advanced analytics, and scalable digital infrastructure for the modern era.
           </p>
           
           <div className="flex flex-row gap-3 pt-2 md:pt-4">
@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
               </div>
               <div>
                 <p className="text-[8px] md:text-[9px] lg:text-[10px] font-bold text-dark-text/40 uppercase tracking-widest">Growth</p>
-                <p className="text-[11px] md:text-xs lg:text-sm font-black text-dark-text">+24.8%</p>
+                <p className="text-[11px] md:text-xs lg:text-sm font-black text-dark-text">+40%</p>
               </div>
             </div>
           </div>

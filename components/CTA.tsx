@@ -4,8 +4,8 @@ import React from 'react';
 const CTA: React.FC = () => {
   // Cache bust: 2026-02-10-18:30
   return (
-    <section id="cta" className="py-12 md:py-16 px-4 md:px-6 bg-gray-50">
-      <div className="max-w-4xl mx-auto bg-gradient-to-br from-primary via-secondary to-primary rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-xl">
+    <section id="cta" className="py-12 md:py-16 px-6 md:px-12 lg:px-16 bg-gray-50 scroll-mt-20">
+      <div className="max-w-6xl mx-auto bg-gradient-to-br from-primary via-secondary to-primary rounded-2xl md:rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-xl">
         <div className="relative z-10 space-y-4 md:space-y-5">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black leading-tight tracking-tight">
             Build the future of healthcare with 365Health Systems

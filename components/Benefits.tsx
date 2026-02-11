@@ -11,8 +11,8 @@ const benefits: Benefit[] = [
 
 const Benefits: React.FC = () => {
   return (
-    <section id="solutions" className="py-16 md:py-24 lg:py-32 bg-primary">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section id="solutions" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-primary">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white">Engineered for Excellence</h2>
           <p className="text-white/70 text-base md:text-lg">Why 365Health is the infrastructure of choice for leading medical institutions worldwide.</p>

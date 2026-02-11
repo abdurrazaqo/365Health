@@ -120,8 +120,8 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
 
 const ProductShowcase: React.FC = () => {
   return (
-    <section id="products" className="py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="products" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">Our Products</h2>
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">

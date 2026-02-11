@@ -25,8 +25,8 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-black text-center mb-12 md:mb-16 lg:mb-20 tracking-tight text-dark-text">Voices from the field</h2>
         <div className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {testimonials.map((t, i) => (

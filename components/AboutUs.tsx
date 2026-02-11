@@ -36,10 +36,10 @@ const AboutUs: React.FC = () => {
   }, [isVisible, count]);
 
   return (
-    <section id="about" className="py-16 md:py-24 lg:py-32 px-4 md:px-6 bg-white" ref={sectionRef}>
-      <div className="max-w-4xl mx-auto">
+    <section id="about" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white" ref={sectionRef}>
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">About 365Health Systems</h2>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">About <span className="italic text-primary">365Health Systems</span></h2>
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">
             Building the future of healthcare infrastructure, one system at a time.
           </p>
@@ -64,21 +64,23 @@ const AboutUs: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 pt-8">
-            <div className="border border-gray-200 rounded-2xl p-6 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Founded</p>
-              <div className="text-3xl md:text-4xl font-black text-primary mb-2">2026</div>
-              <p className="text-sm text-dark-text/60">Building next-gen healthcare tech</p>
-            </div>
-            <div className="border border-gray-200 rounded-2xl p-6 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Efficiency Gain</p>
-              <div className="text-3xl md:text-4xl font-black text-primary mb-2">{count}%+</div>
-              <p className="text-sm text-dark-text/60">Average operational improvement</p>
-            </div>
-            <div className="border border-gray-200 rounded-2xl p-6 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Support</p>
-              <div className="text-3xl md:text-4xl font-black text-primary mb-2">24/7</div>
-              <p className="text-sm text-dark-text/60">Always available for you</p>
+          <div className="border border-gray-200 rounded-2xl overflow-hidden pt-8">
+            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+              <div className="p-6 md:p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Founded</p>
+                <div className="text-3xl md:text-4xl font-black text-primary mb-2">2026</div>
+                <p className="text-sm text-dark-text/60">Building next-gen healthcare tech</p>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Efficiency Gain</p>
+                <div className="text-3xl md:text-4xl font-black text-primary mb-2">{count}%+</div>
+                <p className="text-sm text-dark-text/60">Average operational improvement</p>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-xs font-bold uppercase tracking-widest text-dark-text/40 mb-3">Support</p>
+                <div className="text-3xl md:text-4xl font-black text-primary mb-2">24/7</div>
+                <p className="text-sm text-dark-text/60">Always available for you</p>
+              </div>
             </div>
           </div>
         </div>
