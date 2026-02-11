@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="pt-6 md:pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
-          <p className="text-[10px] font-bold text-dark-text/30">© 2026 365Health Systems Inc. All rights reserved.</p>
+          <p className="text-[10px] font-bold text-dark-text/30">© 2026 365Health Systems. All rights reserved.</p>
           
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
