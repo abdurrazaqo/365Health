@@ -1,0 +1,11 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 365Health -->
+  <text x="20" y="60" font-family="Inter, sans-serif" font-size="48" font-weight="900" letter-spacing="-0.02em">
+    <tspan fill="#006c75">365</tspan><tspan fill="#101818">Health</tspan>
+  </text>
+  
+  <!-- Systems (underneath) -->
+  <text x="20" y="95" font-family="Inter, sans-serif" font-size="32" font-weight="500" fill="#101818">
+    Systems
+  </text>
+</svg>

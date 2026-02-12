@@ -1,0 +1,6 @@
+<svg width="300" height="80" viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 365Health only -->
+  <text x="20" y="55" font-family="Inter, sans-serif" font-size="48" font-weight="900" letter-spacing="-0.02em">
+    <tspan fill="#006c75">365</tspan><tspan fill="#101818">Health</tspan>
+  </text>
+</svg>
