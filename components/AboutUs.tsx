@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
     <section id="about" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text leading-tight">About <span className="text-primary">365Health Systems</span></h2>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text leading-tight">About <span className="text-primary">365Health</span></h2>
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Building the future of healthcare infrastructure, one system at a time.
           </p>
