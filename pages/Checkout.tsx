@@ -41,13 +41,15 @@ const Checkout: React.FC = () => {
                 to="/products/pharmacore" 
                 className="px-6 py-3 bg-gray-100 text-dark-text rounded-full font-semibold text-sm hover:bg-gray-200 transition-all no-underline"
               >
-                Back to Product
+                <span className="hidden sm:inline">Back to Product</span>
+                <span className="sm:hidden">Back</span>
               </Link>
               <button 
-                className="px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-secondary transition-all"
+                className="flex-1 px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-secondary transition-all"
                 disabled
               >
-                Proceed to Payment (Coming Soon)
+                <span className="hidden sm:inline">Proceed to Payment (Coming Soon)</span>
+                <span className="sm:hidden">Proceed to Payment</span>
               </button>
             </div>
           </div>

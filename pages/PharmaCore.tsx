@@ -312,11 +312,12 @@ const PricingSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
+              className={`md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
                 plan.highlighted 
-                  ? 'bg-primary text-white border-primary shadow-xl scale-105' 
+                  ? 'bg-primary text-white border-primary shadow-xl md:scale-105' 
                   : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
               }`}
+              style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
             >
               {plan.highlighted && (
                 <div className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest mb-4">
