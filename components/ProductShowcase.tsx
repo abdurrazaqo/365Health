@@ -8,14 +8,14 @@ const products: Product[] = [
     id: 'pharmacy',
     number: '01',
     name: 'PharmaCore',
-    description: 'Comprehensive Pharmacy Management System designed for precision, efficiency, and clinical safety.',
+    description: 'Cloud-based pharmacy management SaaS with inventory tracking, POS billing, multi-branch support, and role-based access control.',
     image: '/images/products/365pharmacore.svg',
     isComingSoon: true,
     reverseLayout: true,
     features: [
-      { icon: 'inventory_2', title: 'Inventory Management', description: 'Real-time tracking of stock levels and automated AI reordering.' },
-      { icon: 'clinical_notes', title: 'Prescription Workflows', description: 'Streamlined digital validation to reduce clinical errors by 99%.' },
-      { icon: 'account_balance_wallet', title: 'Billing & Multi-branch', description: 'Unified billing systems with support for complex enterprise setups.' },
+      { icon: 'inventory_2', title: 'Inventory & Expiry Tracking', description: 'Real-time stock monitoring with automated expiry alerts and reorder management.' },
+      { icon: 'point_of_sale', title: 'POS & Billing System', description: 'Fast, accurate billing with real-time sales dashboard and analytics.' },
+      { icon: 'account_tree', title: 'Multi-Branch & Role Management', description: 'Centralized control with secure role-based access for multiple locations.' },
     ]
   },
   {
@@ -120,8 +120,8 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
     </div>
   );
 
-  const cardContent = (
-    <div id={product.id} className="sticky top-20 grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg" style={{marginBottom: '2rem'}}>
+  return (
+    <div id={product.id} className={`${isFirstProduct ? '' : 'sticky top-20'} grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg group`} style={{marginBottom: '2rem'}}>
       <div className={`order-2 ${product.reverseLayout ? 'lg:order-1' : 'lg:order-2'}`}>
         {visual}
       </div>
@@ -130,16 +130,6 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
       </div>
     </div>
   );
-
-  if (isFirstProduct) {
-    return (
-      <Link to="/products/pharmacore" className="block no-underline group cursor-pointer">
-        {cardContent}
-      </Link>
-    );
-  }
-
-  return cardContent;
 };
 
 const ProductShowcase: React.FC = () => {

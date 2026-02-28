@@ -21,13 +21,10 @@ const PharmaCoreHero: React.FC = () => {
           Cloud-based pharmacy management system with inventory tracking, POS billing, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2 md:pt-4">
-          <a href="#pricing" className="px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white rounded-full font-semibold text-sm md:text-base hover:bg-secondary transition-all flex items-center justify-center gap-2 no-underline">
+        <div className="flex justify-center pt-2 md:pt-4">
+          <a href="#pricing" className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white rounded-full font-semibold text-sm md:text-base hover:bg-secondary transition-all no-underline">
             View Pricing
             <span className="material-symbols-outlined text-base md:text-lg">arrow_forward</span>
-          </a>
-          <a href="#pricing" className="px-6 md:px-8 py-3 md:py-3.5 bg-transparent border border-gray-300 text-dark-text rounded-full font-semibold text-sm md:text-base hover:bg-gray-50 transition-all no-underline text-center">
-            Start Subscription
           </a>
         </div>
       </div>
@@ -47,7 +44,7 @@ const ProductOverview: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white">
+    <section id="overview" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">What is PharmaCore?</h2>
@@ -72,8 +69,11 @@ const ProductOverview: React.FC = () => {
   );
 };
 
-// Features Section
+// Features Section (Carousel)
 const FeaturesSection: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
   const features = [
     { icon: 'schedule', title: 'Inventory & Expiry Tracking', description: 'Monitor stock levels in real-time with automated expiry date alerts to minimize waste' },
     { icon: 'dashboard', title: 'Real-time Sales Dashboard', description: 'Comprehensive analytics showing sales trends, top products, and revenue insights' },
@@ -84,8 +84,41 @@ const FeaturesSection: React.FC = () => {
     { icon: 'subscriptions', title: 'Subscription Control', description: 'Flexible subscription management with easy plan upgrades and downgrades' },
   ];
 
+  const itemsPerPage = 2;
+  const totalPages = Math.ceil(features.length / itemsPerPage);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, totalPages]);
+
+  const goToPage = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+  };
+
+  const nextPage = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+    setIsAutoPlaying(false);
+  };
+
+  const prevPage = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+    setIsAutoPlaying(false);
+  };
+
+  const visibleFeatures = features.slice(
+    currentIndex * itemsPerPage,
+    currentIndex * itemsPerPage + itemsPerPage
+  );
+
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-gray-50">
+    <section id="features" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-gray-50 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">Powerful Features</h2>
@@ -94,18 +127,71 @@ const FeaturesSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="flex gap-4 md:gap-5 p-6 md:p-8 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 flex items-center justify-center rounded-lg bg-primary/5 text-primary material-symbols-outlined transition-colors group-hover:bg-primary group-hover:text-white text-xl md:text-2xl">
-                {feature.icon}
-              </div>
-              <div>
-                <h4 className="font-bold text-dark-text text-base md:text-lg mb-2">{feature.title}</h4>
-                <p className="text-sm md:text-base text-dark-text/60 leading-relaxed">{feature.description}</p>
-              </div>
+        <div className="relative">
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="grid md:grid-cols-2 gap-6 md:gap-8 transition-all duration-500 ease-in-out"
+              style={{ minHeight: '280px' }}
+            >
+              {visibleFeatures.map((feature, index) => (
+                <div 
+                  key={currentIndex * itemsPerPage + index} 
+                  className="flex gap-4 md:gap-5 p-6 md:p-8 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group animate-on-scroll"
+                  style={{ 
+                    animation: 'fadeInUp 0.5s ease-out forwards',
+                    animationDelay: `${index * 0.1}s`
+                  }}
+                >
+                  <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 flex items-center justify-center rounded-lg bg-primary/5 text-primary material-symbols-outlined transition-colors group-hover:bg-primary group-hover:text-white text-xl md:text-2xl">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-dark-text text-base md:text-lg mb-2">{feature.title}</h4>
+                    <p className="text-sm md:text-base text-dark-text/60 leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevPage}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all group"
+            aria-label="Previous features"
+          >
+            <span className="material-symbols-outlined">chevron_left</span>
+          </button>
+          
+          <button
+            onClick={nextPage}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all group"
+            aria-label="Next features"
+          >
+            <span className="material-symbols-outlined">chevron_right</span>
+          </button>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-8 md:mt-10">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToPage(index)}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex 
+                    ? 'w-8 bg-primary' 
+                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to page ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Feature Counter */}
+          <div className="text-center mt-4 text-sm text-dark-text/40">
+            {currentIndex * itemsPerPage + 1}-{Math.min((currentIndex + 1) * itemsPerPage, features.length)} of {features.length} features
+          </div>
         </div>
       </div>
     </section>
@@ -123,7 +209,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white">
+    <section id="how-it-works" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">How It Works</h2>
@@ -318,7 +404,7 @@ const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white">
+    <section id="faq" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-white scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">Frequently Asked Questions</h2>
