@@ -48,18 +48,18 @@ const Navbar: React.FC = () => {
         {isProductRelatedRoute ? (
           // PharmaCore page navigation
           <div className="hidden md:flex items-center gap-10 ml-auto mr-10">
-            <button onClick={() => scrollToSection('overview')} className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Overview</button>
-            <button onClick={() => scrollToSection('features')} className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Features</button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">How It Works</button>
-            <button onClick={() => scrollToSection('pricing')} className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Pricing</button>
-            <button onClick={() => scrollToSection('faq')} className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">FAQ</button>
+            <button onClick={() => scrollToSection('overview')} className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">Overview</button>
+            <button onClick={() => scrollToSection('features')} className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">Features</button>
+            <button onClick={() => scrollToSection('how-it-works')} className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">How It Works</button>
+            <button onClick={() => scrollToSection('pricing')} className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">Pricing</button>
+            <button onClick={() => scrollToSection('faq')} className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">FAQ</button>
           </div>
         ) : (
           // Homepage navigation
           <div className="hidden md:flex items-center gap-10 ml-auto mr-10">
-            <a href="/#products" className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Products</a>
-            <a href="/#solutions" className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">Solutions</a>
-            <a href="/#about" className="text-sm font-semibold text-dark-text/70 hover:text-primary transition-colors">About Us</a>
+            <a href="/#products" className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">Products</a>
+            <a href="/#solutions" className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">Solutions</a>
+            <a href="/#about" className="text-sm font-semibold text-dark-text/70 dark:text-white/70 hover:text-primary dark:hover:text-primary transition-colors">About Us</a>
           </div>
         )}
         
