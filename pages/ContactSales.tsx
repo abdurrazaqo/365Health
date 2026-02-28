@@ -62,20 +62,12 @@ const ContactSales: React.FC = () => {
               </ul>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link 
-                to="/products/pharmacore" 
-                className="px-6 py-3 bg-gray-100 text-dark-text rounded-full font-semibold text-sm hover:bg-gray-200 transition-all no-underline text-center"
-              >
-                <span className="hidden sm:inline">Back to Product</span>
-                <span className="sm:hidden">Back</span>
-              </Link>
+            <div className="flex justify-center pt-4">
               <a 
                 href="mailto:hello@365health.online?subject=Enterprise%20Plan%20Inquiry"
                 className="px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-secondary transition-all no-underline text-center"
               >
-                <span className="hidden sm:inline">Send Email</span>
-                <span className="sm:hidden">Send Email</span>
+                Send Email
               </a>
             </div>
           </div>
