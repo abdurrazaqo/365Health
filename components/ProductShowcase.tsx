@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Product } from '../types';
+import { Link } from '../router';
 
 const products: Product[] = [
   {
     id: 'pharmacy',
     number: '01',
-    name: '365PharmaCore',
+    name: 'PharmaCore',
     description: 'Comprehensive Pharmacy Management System designed for precision, efficiency, and clinical safety.',
     image: '/images/products/365pharmacore.svg',
     isComingSoon: true,
@@ -49,6 +50,8 @@ const products: Product[] = [
 ];
 
 const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
+  const isFirstProduct = product.id === 'pharmacy';
+  
   const content = (
     <div className="space-y-4 md:space-y-6">
       <div className="text-primary font-bold text-xs tracking-[0.2em] uppercase">
@@ -73,6 +76,17 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
           </div>
         ))}
       </div>
+      {isFirstProduct && (
+        <div className="pt-4">
+          <Link 
+            to="/products/pharmacore" 
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-secondary transition-all no-underline"
+          >
+            Learn More
+            <span className="material-symbols-outlined text-base">arrow_forward</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 
@@ -106,7 +120,7 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
     </div>
   );
 
-  return (
+  const cardContent = (
     <div id={product.id} className="sticky top-20 grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg" style={{marginBottom: '2rem'}}>
       <div className={`order-2 ${product.reverseLayout ? 'lg:order-1' : 'lg:order-2'}`}>
         {visual}
@@ -116,6 +130,16 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
       </div>
     </div>
   );
+
+  if (isFirstProduct) {
+    return (
+      <Link to="/products/pharmacore" className="block no-underline group cursor-pointer">
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 };
 
 const ProductShowcase: React.FC = () => {

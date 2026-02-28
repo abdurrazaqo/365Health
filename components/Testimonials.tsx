@@ -13,7 +13,7 @@ const testimonials: Testimonial[] = [
     name: 'Abdur-Razaq Odeleye',
     role: 'Pharmacy Director',
     initials: 'AO',
-    text: '"365Health has made it much easier for our pharmacy to manage orders and reach more customers. The tools are simple to use and actually built with real pharmacy workflows in mind."'
+    text: '"PharmaCore by 365Health has made it much easier for our pharmacy to manage orders and reach more customers. The tools are simple to use and actually built with real pharmacy workflows in mind."'
   },
   {
     name: 'Adebayo Toluwalase',
