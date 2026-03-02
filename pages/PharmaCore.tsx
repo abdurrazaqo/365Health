@@ -18,7 +18,7 @@ const PharmaCoreHero: React.FC = () => {
         </h1>
         
         <p className="text-sm md:text-base lg:text-lg text-dark-text/60 leading-relaxed max-w-2xl mx-auto mb-8">
-          Cloud-based pharmacy management system with inventory tracking, POS billing, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
+          Cloud-based pharmacy management system with inventory tracking, POS billing, AI-powered consultation, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
         </p>
         
         <div className="flex justify-center pt-2 md:pt-4">
@@ -38,9 +38,9 @@ const ProductOverview: React.FC = () => {
     { icon: 'cloud', title: 'Cloud-Based', description: 'Access your pharmacy data securely from anywhere, anytime' },
     { icon: 'inventory_2', title: 'Inventory Management', description: 'Real-time stock tracking with automated reorder alerts' },
     { icon: 'point_of_sale', title: 'POS & Billing', description: 'Fast, accurate billing with multiple payment methods' },
+    { icon: 'psychology', title: 'AI Consult Assistant', description: 'Intelligent drug interaction checks and dosage recommendations' },
     { icon: 'admin_panel_settings', title: 'Role-Based Access', description: 'Secure user permissions for different staff levels' },
     { icon: 'account_tree', title: 'Multi-Branch Support', description: 'Manage multiple pharmacy locations from one dashboard' },
-    { icon: 'lock', title: 'Secure Login', description: 'Enterprise-grade security with encrypted data storage' },
   ];
 
   return (
@@ -77,6 +77,7 @@ const FeaturesSection: React.FC = () => {
   const features = [
     { icon: 'schedule', title: 'Inventory & Expiry Tracking', description: 'Monitor stock levels in real-time with automated expiry date alerts to minimize waste' },
     { icon: 'dashboard', title: 'Real-time Sales Dashboard', description: 'Comprehensive analytics showing sales trends, top products, and revenue insights' },
+    { icon: 'psychology', title: 'AI Consult Assistant', description: 'Intelligent drug interaction checks, dosage recommendations, and clinical decision support' },
     { icon: 'group', title: 'Role-Based User Management', description: 'Assign specific permissions to pharmacists, cashiers, and administrators' },
     { icon: 'history', title: 'Audit Logs', description: 'Complete transaction history and user activity tracking for compliance' },
     { icon: 'store', title: 'Branch Management', description: 'Centralized control over multiple pharmacy locations with individual reporting' },
@@ -253,6 +254,7 @@ const PricingSection: React.FC = () => {
         'Up to 5 users',
         'Basic inventory management',
         'POS & billing',
+        'AI Consult Assistant',
         'Email support',
         'Daily backups',
       ],
@@ -270,6 +272,7 @@ const PricingSection: React.FC = () => {
         'Up to 15 users',
         'Advanced inventory & expiry tracking',
         'Real-time analytics dashboard',
+        'AI Consult Assistant (Advanced)',
         'Role-based access control',
         'Priority support',
         'Audit logs',
@@ -286,6 +289,7 @@ const PricingSection: React.FC = () => {
       features: [
         'Unlimited branches',
         'Unlimited users',
+        'AI Consult Assistant (Premium)',
         'Custom integrations',
         'Dedicated account manager',
         '24/7 phone support',
@@ -383,6 +387,10 @@ const FAQSection: React.FC = () => {
       answer: 'Simply choose your preferred plan from our pricing section, complete the secure payment via Paystack, and you\'ll receive an onboarding link immediately. Our team will verify your pharmacy credentials and activate your account within 24 hours.',
     },
     {
+      question: 'What is the AI Consult Assistant?',
+      answer: 'PharmaCore AI Consult is an intelligent assistant that helps pharmacists with drug interaction checks, dosage recommendations, and clinical decision support. It analyzes prescriptions in real-time and provides evidence-based guidance to improve patient safety and care quality.',
+    },
+    {
       question: 'Can I manage multiple pharmacy branches?',
       answer: 'Yes! Our Pro plan supports up to 3 branches, while our Enterprise plan offers unlimited branch management. Each branch can have its own inventory, staff, and reporting while maintaining centralized oversight.',
     },
@@ -392,7 +400,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: 'Can I upgrade my plan later?',
-      answer: 'Yes, you can upgrade or downgrade your plan at any time. When you upgrade, you\'ll get immediate access to new features. Downgrades take effect at the start of your next billing cycle.',
+      answer: 'Yes, you can upgrade or downgrade your plan at any time. When you upgrade, you\'ll get immediate access to new features including advanced AI capabilities. Downgrades take effect at the start of your next billing cycle.',
     },
     {
       question: 'What happens if my subscription expires?',

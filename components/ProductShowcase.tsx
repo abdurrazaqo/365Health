@@ -8,14 +8,14 @@ const products: Product[] = [
     id: 'pharmacy',
     number: '01',
     name: 'PharmaCore',
-    description: 'Cloud-based pharmacy management SaaS with inventory tracking, POS billing, multi-branch support, and role-based access control.',
+    description: 'Cloud-based pharmacy management SaaS with inventory tracking, POS billing, multi-branch support, and AI-powered consultation.',
     image: '/images/products/365pharmacore.svg',
     isComingSoon: true,
     reverseLayout: true,
     features: [
       { icon: 'inventory_2', title: 'Inventory & Expiry Tracking', description: 'Real-time stock monitoring with automated expiry alerts and reorder management.' },
       { icon: 'point_of_sale', title: 'POS & Billing System', description: 'Fast, accurate billing with real-time sales dashboard and analytics.' },
-      { icon: 'account_tree', title: 'Multi-Branch & Role Management', description: 'Centralized control with secure role-based access for multiple locations.' },
+      { icon: 'psychology', title: 'AI Consult Assistant', description: 'Intelligent drug interaction checks and dosage recommendations powered by AI.' },
     ]
   },
   {
