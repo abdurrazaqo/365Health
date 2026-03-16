@@ -12,15 +12,15 @@ const PharmaCoreHero: React.FC = () => {
           </span>
           Multi-Tenant Pharmacy SaaS
         </div>
-        
+
         <h1 className="text-[2rem] leading-[0.95] md:text-3xl lg:text-4xl xl:text-5xl md:leading-[0.95] font-black tracking-tight text-dark-text mb-6">
           Complete Pharmacy Management <span className="text-primary">Simplified</span>
         </h1>
-        
+
         <p className="text-sm md:text-base lg:text-lg text-dark-text/60 leading-relaxed max-w-2xl mx-auto mb-8">
           Cloud-based pharmacy management system with inventory tracking, POS billing, AI-powered consultation, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
         </p>
-        
+
         <div className="flex justify-center pt-2 md:pt-4">
           <a href="#pricing" className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white rounded-full font-semibold text-sm md:text-base hover:bg-secondary transition-all no-underline">
             View Pricing
@@ -52,7 +52,7 @@ const ProductOverview: React.FC = () => {
             A comprehensive multi-tenant SaaS platform designed specifically for modern pharmacy operations
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <div key={index} className="p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 group">
@@ -73,7 +73,7 @@ const ProductOverview: React.FC = () => {
 const FeaturesSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  
+
   const features = [
     { icon: 'schedule', title: 'Inventory & Expiry Tracking', description: 'Monitor stock levels in real-time with automated expiry date alerts to minimize waste' },
     { icon: 'dashboard', title: 'Real-time Sales Dashboard', description: 'Comprehensive analytics showing sales trends, top products, and revenue insights' },
@@ -90,7 +90,7 @@ const FeaturesSection: React.FC = () => {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalPages);
     }, 5000);
@@ -127,19 +127,19 @@ const FeaturesSection: React.FC = () => {
             Everything you need to manage your pharmacy efficiently and securely
           </p>
         </div>
-        
+
         <div className="relative">
           {/* Carousel Container */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="grid md:grid-cols-2 gap-6 md:gap-8 transition-all duration-500 ease-in-out"
               style={{ minHeight: '280px' }}
             >
               {visibleFeatures.map((feature, index) => (
-                <div 
-                  key={currentIndex * itemsPerPage + index} 
+                <div
+                  key={currentIndex * itemsPerPage + index}
                   className="flex gap-4 md:gap-5 p-6 md:p-8 bg-white rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group animate-on-scroll"
-                  style={{ 
+                  style={{
                     animation: 'fadeInUp 0.5s ease-out forwards',
                     animationDelay: `${index * 0.1}s`
                   }}
@@ -164,7 +164,7 @@ const FeaturesSection: React.FC = () => {
           >
             <span className="material-symbols-outlined">chevron_left</span>
           </button>
-          
+
           <button
             onClick={nextPage}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg border border-gray-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all group"
@@ -179,11 +179,10 @@ const FeaturesSection: React.FC = () => {
               <button
                 key={index}
                 onClick={() => goToPage(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentIndex 
-                    ? 'w-8 bg-primary' 
+                className={`h-2 rounded-full transition-all ${index === currentIndex
+                    ? 'w-8 bg-primary'
                     : 'w-2 bg-gray-300 hover:bg-gray-400'
-                }`}
+                  }`}
                 aria-label={`Go to page ${index + 1}`}
               />
             ))}
@@ -218,7 +217,7 @@ const HowItWorks: React.FC = () => {
             Get started with PharmaCore in five simple steps
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
@@ -246,7 +245,7 @@ const PricingSection: React.FC = () => {
   const plans = [
     {
       name: 'Basic',
-      price: '₦15,000',
+      price: '₦5,000',
       period: '/month',
       description: 'Perfect for single pharmacy locations',
       features: [
@@ -264,7 +263,7 @@ const PricingSection: React.FC = () => {
     },
     {
       name: 'Pro',
-      price: '₦35,000',
+      price: '₦8,000',
       period: '/month',
       description: 'Ideal for growing pharmacy businesses',
       features: [
@@ -311,16 +310,15 @@ const PricingSection: React.FC = () => {
             Choose the plan that fits your pharmacy needs. All plans include core features.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {plans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${
-                plan.highlighted 
-                  ? 'bg-primary text-white border-primary shadow-xl md:scale-105' 
+            <div
+              key={index}
+              className={`md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${plan.highlighted
+                  ? 'bg-primary text-white border-primary shadow-xl md:scale-105'
                   : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
-              }`}
+                }`}
               style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
             >
               {plan.highlighted && (
@@ -328,11 +326,11 @@ const PricingSection: React.FC = () => {
                   Recommended
                 </div>
               )}
-              
+
               <h3 className={`text-xl md:text-2xl font-black mb-2 ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
                 {plan.name}
               </h3>
-              
+
               <div className="mb-4">
                 <span className={`text-3xl md:text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
                   {plan.price}
@@ -341,11 +339,11 @@ const PricingSection: React.FC = () => {
                   {plan.period}
                 </span>
               </div>
-              
+
               <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/80' : 'text-dark-text/60 dark:text-white/80'}`}>
                 {plan.description}
               </p>
-              
+
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
@@ -358,14 +356,13 @@ const PricingSection: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              
-              <a 
+
+              <a
                 href={plan.href}
-                className={`block w-full px-6 py-3 rounded-full font-semibold text-sm text-center transition-all ${
-                  plan.highlighted
+                className={`block w-full px-6 py-3 rounded-full font-semibold text-sm text-center transition-all ${plan.highlighted
                     ? 'bg-white text-primary hover:bg-gray-100'
                     : 'bg-primary text-white hover:bg-secondary'
-                }`}
+                  }`}
               >
                 {plan.cta}
               </a>
@@ -421,11 +418,11 @@ const FAQSection: React.FC = () => {
             Everything you need to know about PharmaCore
           </p>
         </div>
-        
+
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="border border-gray-100 rounded-2xl overflow-hidden bg-gray-50 hover:bg-white transition-all"
             >
               <button
@@ -437,7 +434,7 @@ const FAQSection: React.FC = () => {
                   expand_more
                 </span>
               </button>
-              
+
               {openIndex === index && (
                 <div className="px-6 md:px-8 pb-5 md:pb-6">
                   <p className="text-dark-text/60 text-sm md:text-base leading-relaxed">
