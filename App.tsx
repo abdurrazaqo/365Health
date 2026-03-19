@@ -14,14 +14,16 @@ const routes: Route[] = [
   {
     path: '/',
     component: HomePage,
-    title: '365Health Systems | Infrastructure for Modern Healthcare',
-    description: 'Revolutionizing healthcare with advanced analytics, and scalable digital infrastructure for the modern era.',
+    title: '365Health - Building the Infrastructure for Modern Healthcare',
+    description: 'Digital infrastructure for healthcare. Systems, analytics and platforms that power modern healthcare operations.',
+    image: '/images/homepage.png',
   },
   {
     path: '/products/pharmacore',
     component: PharmaCore,
-    title: 'PharmaCore | Complete Pharmacy Management System | 365Health',
-    description: 'Cloud-based pharmacy management system with inventory tracking, POS billing, multi-branch support, and role-based access control.',
+    title: 'PharmaCore - The Operating System for Modern Pharmacies',
+    description: 'Run your entire pharmacy from one system. Manage inventory, sales, and analytics with PharmaCore.',
+    image: '/images/pharmacore.png',
   },
   {
     path: '/contact-sales',
