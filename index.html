@@ -25,6 +25,70 @@
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     
+    <!-- Immediate Meta Tag Update Script (runs before page render) -->
+    <script>
+        (function() {
+            var path = window.location.pathname;
+            var routes = {
+                '/': {
+                    title: '365Health - Building the Infrastructure for Modern Healthcare',
+                    description: 'Digital infrastructure for healthcare. Systems, analytics and platforms that power modern healthcare operations.',
+                    image: '/images/homepage.png'
+                },
+                '/products/pharmacore': {
+                    title: 'PharmaCore - The Operating System for Modern Pharmacies',
+                    description: 'Run your entire pharmacy from one system. Manage inventory, sales, and analytics with PharmaCore.',
+                    image: '/images/pharmacore.png'
+                },
+                '/checkout': {
+                    title: 'Checkout | 365Health Systems',
+                    description: 'Complete your subscription to 365Health products.',
+                    image: '/images/pharmacore.png'
+                },
+                '/contact-sales': {
+                    title: 'Contact Sales | 365Health Systems',
+                    description: 'Get in touch with our sales team to discuss Enterprise solutions.',
+                    image: '/images/pharmacore.png'
+                }
+            };
+            
+            var route = routes[path] || routes['/'];
+            
+            // Update title
+            document.title = route.title;
+            
+            // Update meta description
+            var metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', route.description);
+            
+            // Update Open Graph tags
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.setAttribute('content', route.title);
+            
+            var ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.setAttribute('content', route.description);
+            
+            var ogImage = document.querySelector('meta[property="og:image"]');
+            if (ogImage) ogImage.setAttribute('content', route.image);
+            
+            var ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+            
+            // Update Twitter tags
+            var twitterTitle = document.querySelector('meta[property="twitter:title"]');
+            if (twitterTitle) twitterTitle.setAttribute('content', route.title);
+            
+            var twitterDesc = document.querySelector('meta[property="twitter:description"]');
+            if (twitterDesc) twitterDesc.setAttribute('content', route.description);
+            
+            var twitterImage = document.querySelector('meta[property="twitter:image"]');
+            if (twitterImage) twitterImage.setAttribute('content', route.image);
+            
+            var twitterUrl = document.querySelector('meta[property="twitter:url"]');
+            if (twitterUrl) twitterUrl.setAttribute('content', window.location.href);
+        })();
+    </script>
+    
     <!-- Preconnect to external resources for faster loading -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
