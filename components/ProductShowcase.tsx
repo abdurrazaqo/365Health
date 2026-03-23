@@ -121,7 +121,7 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   );
 
   return (
-    <div id={product.id} className={`${isFirstProduct ? '' : 'sticky top-20'} grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg group`} style={{marginBottom: '2rem'}}>
+    <div id={product.id} className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-lg group" style={{marginBottom: '2rem'}}>
       <div className={`order-2 ${product.reverseLayout ? 'lg:order-1' : 'lg:order-2'}`}>
         {visual}
       </div>

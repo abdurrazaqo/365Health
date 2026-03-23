@@ -242,11 +242,14 @@ const HowItWorks: React.FC = () => {
 
 // Pricing Section
 const PricingSection: React.FC = () => {
+  const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly');
+
   const plans = [
     {
       name: 'Basic',
-      price: '₦5,000',
-      period: '/month',
+      priceMonthly: '₦10,000',
+      priceAnnual: '₦100,000',
+      annualStrikethrough: '₦120,000',
       description: 'Perfect for single pharmacy locations',
       features: [
         'Single branch support',
@@ -260,11 +263,13 @@ const PricingSection: React.FC = () => {
       cta: 'Start Basic Plan',
       href: '/checkout?product=pharmacore&plan=basic',
       highlighted: false,
+      hasTrial: true,
     },
     {
       name: 'Pro',
-      price: '₦8,000',
-      period: '/month',
+      priceMonthly: '₦20,000',
+      priceAnnual: '₦200,000',
+      annualStrikethrough: '₦240,000',
       description: 'Ideal for growing pharmacy businesses',
       features: [
         'Up to 3 branches',
@@ -279,11 +284,13 @@ const PricingSection: React.FC = () => {
       cta: 'Start Pro Plan',
       href: '/checkout?product=pharmacore&plan=pro',
       highlighted: true,
+      hasTrial: true,
     },
     {
       name: 'Enterprise',
-      price: 'Custom',
-      period: '',
+      priceMonthly: 'Custom',
+      priceAnnual: 'Custom',
+      annualStrikethrough: null,
       description: 'For large pharmacy chains',
       features: [
         'Unlimited branches',
@@ -298,76 +305,135 @@ const PricingSection: React.FC = () => {
       cta: 'Contact Sales',
       href: '/contact-sales',
       highlighted: false,
+      hasTrial: false,
     },
   ];
 
   return (
     <section id="pricing" className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-gray-50 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
+        <div className="text-center mb-10 md:mb-12 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">Simple, Transparent Pricing</h2>
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">
             Choose the plan that fits your pharmacy needs. All plans include core features.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${plan.highlighted
-                  ? 'bg-primary text-white border-primary shadow-xl md:scale-105'
-                  : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
-                }`}
-              style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
+        {/* Toggle Switch */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 flex-wrap">
+          <div className="relative inline-flex bg-gray-200 rounded-full p-1 items-center">
+            <button
+              onClick={() => setCycle('monthly')}
+              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${
+                cycle === 'monthly' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}
             >
-              {plan.highlighted && (
-                <div className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest mb-4">
-                  Recommended
-                </div>
-              )}
-
-              <h3 className={`text-xl md:text-2xl font-black mb-2 ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
-                {plan.name}
-              </h3>
-
-              <div className="mb-4">
-                <span className={`text-3xl md:text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
-                  {plan.price}
-                </span>
-                <span className={`text-sm ${plan.highlighted ? 'text-white/70' : 'text-dark-text/60 dark:text-white/70'}`}>
-                  {plan.period}
-                </span>
-              </div>
-
-              <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/80' : 'text-dark-text/60 dark:text-white/80'}`}>
-                {plan.description}
-              </p>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className={`material-symbols-outlined text-lg ${plan.highlighted ? 'text-white' : 'text-primary'}`}>
-                      check_circle
-                    </span>
-                    <span className={plan.highlighted ? 'text-white/90' : 'text-dark-text/70 dark:text-white/90'}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={plan.href}
-                className={`block w-full px-6 py-3 rounded-full font-semibold text-sm text-center transition-all ${plan.highlighted
-                    ? 'bg-white text-primary hover:bg-gray-100'
-                    : 'bg-primary text-white hover:bg-secondary'
-                  }`}
-              >
-                {plan.cta}
-              </a>
+              Monthly
+            </button>
+            <button
+              onClick={() => setCycle('annual')}
+              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${
+                cycle === 'annual' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
+              }`}
+            >
+              Annual
+            </button>
+            <div
+              className={`absolute top-1 bottom-1 w-28 bg-primary rounded-full transition-transform duration-300 ease-in-out ${
+                cycle === 'monthly' ? 'translate-x-0' : 'translate-x-full'
+              }`}
+            ></div>
+          </div>
+          
+          {cycle === 'annual' && (
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider animate-in fade-in zoom-in duration-300">
+              Save 2 months
             </div>
-          ))}
+          )}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 cursor-default">
+          {plans.map((plan, index) => {
+            const isCustom = plan.name === 'Enterprise';
+            const displayPrice = isCustom ? 'Custom' : (cycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual);
+            const displayPeriod = isCustom ? '' : (cycle === 'monthly' ? '/month' : '/yr');
+            const finalHref = isCustom ? plan.href : `${plan.href}&cycle=${cycle}`;
+
+            return (
+              <div
+                key={index}
+                className={`flex flex-col md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${plan.highlighted
+                    ? 'bg-primary text-white border-primary shadow-xl md:scale-105 z-10'
+                    : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
+                  }`}
+                style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
+              >
+                <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
+                  <div className="min-h-[24px]">
+                    {plan.highlighted && (
+                      <div className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest">
+                        Recommended
+                      </div>
+                    )}
+                  </div>
+                  {plan.hasTrial && (
+                    <div className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${
+                      plan.highlighted ? 'bg-white text-primary' : 'bg-primary/10 text-primary'
+                    }`}>
+                      Start with 30 days free
+                    </div>
+                  )}
+                </div>
+
+                <h3 className={`text-xl md:text-2xl font-black mb-2 ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
+                  {plan.name}
+                </h3>
+
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className={`text-3xl md:text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-dark-text dark:text-white'}`}>
+                      {displayPrice}
+                    </span>
+                    <span className={`text-sm ${plan.highlighted ? 'text-white/70' : 'text-dark-text/60 dark:text-white/70'}`}>
+                      {displayPeriod}
+                    </span>
+                  </div>
+                  {!isCustom && cycle === 'annual' && plan.annualStrikethrough && (
+                    <div className={`text-sm line-through mt-1 opacity-75 ${plan.highlighted ? 'text-white/80' : 'text-gray-400'}`}>
+                      {plan.annualStrikethrough}/yr
+                    </div>
+                  )}
+                </div>
+
+                <p className={`text-sm mb-6 ${plan.highlighted ? 'text-white/80' : 'text-dark-text/60 dark:text-white/80'}`}>
+                  {plan.description}
+                </p>
+
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span className={`material-symbols-outlined text-lg ${plan.highlighted ? 'text-white' : 'text-primary'}`}>
+                        check_circle
+                      </span>
+                      <span className={plan.highlighted ? 'text-white/90' : 'text-dark-text/70 dark:text-white/90'}>
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={finalHref}
+                  className={`block w-full px-6 py-3 mt-auto rounded-full font-semibold text-sm text-center transition-all ${plan.highlighted
+                      ? 'bg-white text-primary hover:bg-gray-100'
+                      : 'bg-primary text-white hover:bg-secondary'
+                    }`}
+                >
+                  {plan.cta}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -381,7 +447,7 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: 'How do I subscribe to PharmaCore?',
-      answer: 'Simply choose your preferred plan from our pricing section, complete the secure payment via Paystack, and you\'ll receive an onboarding link immediately. Our team will verify your pharmacy credentials and activate your account within 24 hours.',
+      answer: 'Simply choose your preferred plan from our pricing section to start your 30-day free trial. Complete the secure payment setup via Paystack, and you\'ll receive an onboarding link immediately. Our team will verify your pharmacy credentials and activate your account within 24 hours.',
     },
     {
       question: 'What is the AI Consult Assistant?',
@@ -401,7 +467,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: 'What happens if my subscription expires?',
-      answer: 'You\'ll receive email reminders before expiration. If your subscription expires, your account enters read-only mode - you can view data but not make changes. Reactivate anytime to restore full access. We retain your data for 90 days.',
+      answer: 'You\'ll receive email reminders before expiration. If your subscription expires, you\'ll have a 3-day grace period before your account enters read-only mode - you can view data but not make changes. Reactivate anytime to restore full access. We retain your data for 90 days.',
     },
     {
       question: 'Do you offer training and support?',
