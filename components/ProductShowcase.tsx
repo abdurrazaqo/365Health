@@ -9,8 +9,8 @@ const products: Product[] = [
     number: '01',
     name: 'PharmaCore',
     description: 'Cloud-based pharmacy management SaaS with inventory tracking, POS billing, multi-branch support, and AI-powered consultation.',
-    image: '/images/products/365pharmacore.svg',
-    isComingSoon: true,
+    image: '/images/products/pharmacore.png',
+    isComingSoon: false,
     reverseLayout: true,
     features: [
       { icon: 'inventory_2', title: 'Inventory & Expiry Tracking', description: 'Real-time stock monitoring with automated expiry alerts and reorder management.' },

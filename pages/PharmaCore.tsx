@@ -363,7 +363,7 @@ const PricingSection: React.FC = () => {
               <div
                 key={index}
                 className={`flex flex-col md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${plan.highlighted
-                    ? 'bg-primary text-white border-primary shadow-xl md:scale-105 z-10'
+                    ? 'bg-primary text-white border-primary shadow-xl md:scale-105 md:z-10'
                     : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
                   }`}
                 style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
