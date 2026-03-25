@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from '../router';
 
 // Hero Section Component
 const PharmaCoreHero: React.FC = () => {
@@ -422,15 +423,15 @@ const PricingSection: React.FC = () => {
                   ))}
                 </ul>
 
-                <a
-                  href={finalHref}
+                <Link
+                  to={finalHref}
                   className={`block w-full px-6 py-3 mt-auto rounded-full font-semibold text-sm text-center transition-all ${plan.highlighted
                       ? 'bg-white text-primary hover:bg-gray-100'
                       : 'bg-primary text-white hover:bg-secondary'
                     }`}
                 >
                   {plan.cta}
-                </a>
+                </Link>
               </div>
             );
           })}
