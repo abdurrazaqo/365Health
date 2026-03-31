@@ -375,7 +375,7 @@ const PricingSection: React.FC = () => {
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">
             Choose the plan that fits your pharmacy needs. All plans include core features.
           </p>
-          <p className="text-dark-text/70 text-sm md:text-base font-medium max-w-2xl mx-auto">
+          <p className="text-dark-text/70 dark:text-white/70 text-sm md:text-base font-medium max-w-2xl mx-auto">
             Your first 30 days are included with every plan. Your subscription begins on day 31.
           </p>
         </div>
@@ -502,7 +502,7 @@ const PricingSection: React.FC = () => {
 
         {/* Demo CTA Section */}
         <div className="text-center pt-8 border-t border-gray-200">
-          <p className="text-dark-text/70 text-base mb-4">
+          <p className="text-dark-text/70 dark:text-white/70 text-base mb-4">
             Not ready to commit? Explore the full product first.
           </p>
           <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-white text-primary border-2 border-primary rounded-full font-semibold text-sm md:text-base hover:bg-primary/5 transition-all no-underline">
