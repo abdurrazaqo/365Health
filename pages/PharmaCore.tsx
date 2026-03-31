@@ -11,7 +11,7 @@ const PharmaCoreHero: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Multi-Tenant Pharmacy SaaS
+          Multi-Tenant Pharmacy SAAS
         </div>
 
         <h1 className="text-[2rem] leading-[0.95] md:text-3xl lg:text-4xl xl:text-5xl md:leading-[0.95] font-black tracking-tight text-dark-text mb-6">
@@ -19,14 +19,20 @@ const PharmaCoreHero: React.FC = () => {
         </h1>
 
         <p className="text-sm md:text-base lg:text-lg text-dark-text/60 leading-relaxed max-w-2xl mx-auto mb-8">
-          Cloud-based pharmacy management system with inventory tracking, POS billing, AI-powered consultation, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
+          Cloud-based pharmacy management system with inventory tracking, POS billing, AI-powered interaction check, multi-branch support, and role-based access control. Everything you need to run a modern pharmacy.
         </p>
 
-        <div className="flex justify-center pt-2 md:pt-4">
+        <div className="flex flex-col items-center gap-3 pt-2 md:pt-4">
           <a href="#pricing" className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white rounded-full font-semibold text-sm md:text-base hover:bg-secondary transition-all no-underline">
             View Pricing
             <span className="material-symbols-outlined text-base md:text-lg">arrow_forward</span>
           </a>
+          <div className="flex flex-col items-center gap-1">
+            <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary hover:underline text-sm md:text-base font-medium no-underline">
+              Try Live Demo
+            </a>
+            <span className="text-xs text-dark-text/40">No account needed · Resets daily</span>
+          </div>
         </div>
       </div>
     </section>
@@ -181,8 +187,8 @@ const FeaturesSection: React.FC = () => {
                 key={index}
                 onClick={() => goToPage(index)}
                 className={`h-2 rounded-full transition-all ${index === currentIndex
-                    ? 'w-8 bg-primary'
-                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                  ? 'w-8 bg-primary'
+                  : 'w-2 bg-gray-300 hover:bg-gray-400'
                   }`}
                 aria-label={`Go to page ${index + 1}`}
               />
@@ -199,14 +205,59 @@ const FeaturesSection: React.FC = () => {
   );
 };
 
+// Demo Highlight Section
+const DemoHighlightSection: React.FC = () => {
+  return (
+    <section className="py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-16 bg-gradient-to-br from-primary via-[#004d54] to-primary">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest mb-6">
+          Live Demo Available
+        </div>
+
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+          See PharmaCore in Action — Right Now
+        </h2>
+
+        <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-10">
+          Explore a fully functional demo pre-loaded with real pharmacy data. No signup, no payment, no commitment.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="flex flex-col items-center gap-3 text-white">
+            <span className="material-symbols-outlined text-4xl">inventory_2</span>
+            <p className="text-sm">Browse 50+ real medicine listings</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 text-white">
+            <span className="material-symbols-outlined text-4xl">point_of_sale</span>
+            <p className="text-sm">Process a complete sale end-to-end</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 text-white">
+            <span className="material-symbols-outlined text-4xl">psychology</span>
+            <p className="text-sm">Ask the AI Consult a clinical question</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-2">
+          <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 md:px-10 py-3.5 md:py-4 bg-white text-primary rounded-full font-bold text-sm md:text-base hover:scale-105 transition-all shadow-xl no-underline">
+            Launch Live Demo
+            <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+          <span className="text-white/60 text-xs">Pre-loaded with sample data · Resets daily · No account needed</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // How It Works Section
 const HowItWorks: React.FC = () => {
   const steps = [
-    { number: '01', title: 'Choose a Plan', description: 'Select the subscription tier that fits your pharmacy size and needs', icon: 'checklist' },
-    { number: '02', title: 'Pay Securely via Paystack', description: 'Complete payment through our secure Paystack integration', icon: 'payment' },
-    { number: '03', title: 'Receive Onboarding Link', description: 'Get instant access to your personalized setup portal', icon: 'mail' },
-    { number: '04', title: 'Get Approved', description: 'Our team verifies your pharmacy credentials and activates your account', icon: 'verified' },
-    { number: '05', title: 'Start Managing', description: 'Begin using PharmaCore to streamline your pharmacy operations', icon: 'rocket_launch' },
+    { number: '00', title: 'Try the Demo', description: 'Not sure yet? Explore PharmaCore live with sample data — no account needed.', icon: 'play_circle', hasLink: true },
+    { number: '01', title: 'Choose a Plan', description: 'Select the plan that fits your pharmacy. All plans include your first 30 days free.', icon: 'checklist', hasLink: false },
+    { number: '02', title: 'Pay Securely via Paystack', description: 'Complete payment through our secure Paystack integration', icon: 'payment', hasLink: false },
+    { number: '03', title: 'Receive Onboarding Link', description: 'Get your access code instantly. Use it to register your pharmacy details.', icon: 'mail', hasLink: false },
+    { number: '04', title: 'Get Approved', description: 'Our team verifies your pharmacy credentials and activates your account', icon: 'verified', hasLink: false },
+    { number: '05', title: 'Start Managing', description: 'Your first 30 days are included. Your subscription begins on day 31 — plenty of time to see the value.', icon: 'rocket_launch', hasLink: false },
   ];
 
   return (
@@ -215,11 +266,11 @@ const HowItWorks: React.FC = () => {
         <div className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-dark-text">How It Works</h2>
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">
-            Get started with PharmaCore in five simple steps
+            Get started with PharmaCore in six simple steps
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               <div className="text-center">
@@ -228,7 +279,13 @@ const HowItWorks: React.FC = () => {
                 </div>
                 <div className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-2">Step {step.number}</div>
                 <h3 className="text-base md:text-lg font-bold text-dark-text mb-2">{step.title}</h3>
-                <p className="text-xs md:text-sm text-dark-text/60 leading-relaxed">{step.description}</p>
+                <p className="text-xs md:text-sm text-dark-text/60 leading-relaxed mb-2">{step.description}</p>
+                {step.hasLink && (
+                  <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+                    Try Demo
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </a>
+                )}
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-primary/20"></div>
@@ -318,6 +375,9 @@ const PricingSection: React.FC = () => {
           <p className="text-dark-text/60 text-base md:text-lg max-w-2xl mx-auto">
             Choose the plan that fits your pharmacy needs. All plans include core features.
           </p>
+          <p className="text-dark-text/70 text-sm md:text-base font-medium max-w-2xl mx-auto">
+            Your first 30 days are included with every plan. Your subscription begins on day 31.
+          </p>
         </div>
 
         {/* Toggle Switch */}
@@ -325,27 +385,24 @@ const PricingSection: React.FC = () => {
           <div className="relative inline-flex bg-gray-200 rounded-full p-1 items-center">
             <button
               onClick={() => setCycle('monthly')}
-              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${
-                cycle === 'monthly' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
-              }`}
+              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${cycle === 'monthly' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
+                }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setCycle('annual')}
-              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${
-                cycle === 'annual' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
-              }`}
+              className={`relative z-10 w-28 py-2 text-sm font-semibold rounded-full transition-colors ${cycle === 'annual' ? 'text-white' : 'text-gray-700 hover:text-gray-900'
+                }`}
             >
               Annual
             </button>
             <div
-              className={`absolute top-1 bottom-1 w-28 bg-primary rounded-full transition-transform duration-300 ease-in-out ${
-                cycle === 'monthly' ? 'translate-x-0' : 'translate-x-full'
-              }`}
+              className={`absolute top-1 bottom-1 w-28 bg-primary rounded-full transition-transform duration-300 ease-in-out ${cycle === 'monthly' ? 'translate-x-0' : 'translate-x-full'
+                }`}
             ></div>
           </div>
-          
+
           {cycle === 'annual' && (
             <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider animate-in fade-in zoom-in duration-300">
               Save 2 months
@@ -353,7 +410,7 @@ const PricingSection: React.FC = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 cursor-default">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 cursor-default mb-12">
           {plans.map((plan, index) => {
             const isCustom = plan.name === 'Enterprise';
             const displayPrice = isCustom ? 'Custom' : (cycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual);
@@ -364,8 +421,8 @@ const PricingSection: React.FC = () => {
               <div
                 key={index}
                 className={`flex flex-col md:static sticky top-20 p-6 md:p-8 rounded-2xl border transition-all duration-300 ${plan.highlighted
-                    ? 'bg-primary text-white border-primary shadow-xl md:scale-105 md:z-10'
-                    : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
+                  ? 'bg-primary text-white border-primary shadow-xl md:scale-105 md:z-10'
+                  : 'bg-white text-dark-text border-gray-100 hover:shadow-xl'
                   }`}
                 style={{ marginBottom: index < plans.length - 1 ? '1rem' : '0' }}
               >
@@ -378,10 +435,9 @@ const PricingSection: React.FC = () => {
                     )}
                   </div>
                   {plan.hasTrial && (
-                    <div className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${
-                      plan.highlighted ? 'bg-white text-primary' : 'bg-primary/10 text-primary'
-                    }`}>
-                      Start with 30 days free
+                    <div className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${plan.highlighted ? 'bg-white text-primary' : 'bg-primary/10 text-primary'
+                      }`}>
+                      First month included
                     </div>
                   )}
                 </div>
@@ -410,6 +466,13 @@ const PricingSection: React.FC = () => {
                   {plan.description}
                 </p>
 
+                {plan.hasTrial && (
+                  <div className={`flex items-center gap-2 text-xs mb-4 ${plan.highlighted ? 'text-white/90' : 'text-primary'}`}>
+                    <span className="material-symbols-outlined text-base">check_circle</span>
+                    <span className="font-semibold">First 30 days included free</span>
+                  </div>
+                )}
+
                 <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
@@ -426,8 +489,8 @@ const PricingSection: React.FC = () => {
                 <Link
                   to={finalHref}
                   className={`block w-full px-6 py-3 mt-auto rounded-full font-semibold text-sm text-center transition-all ${plan.highlighted
-                      ? 'bg-white text-primary hover:bg-gray-100'
-                      : 'bg-primary text-white hover:bg-secondary'
+                    ? 'bg-white text-primary hover:bg-gray-100'
+                    : 'bg-primary text-white hover:bg-secondary'
                     }`}
                 >
                   {plan.cta}
@@ -435,6 +498,20 @@ const PricingSection: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Demo CTA Section */}
+        <div className="text-center pt-8 border-t border-gray-200">
+          <p className="text-dark-text/70 text-base mb-4">
+            Not ready to commit? Explore the full product first.
+          </p>
+          <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 bg-white text-primary border-2 border-primary rounded-full font-semibold text-sm md:text-base hover:bg-primary/5 transition-all no-underline">
+            Try Live Demo
+            <span className="material-symbols-outlined text-base md:text-lg">arrow_forward</span>
+          </a>
+          <p className="text-dark-text/40 text-xs mt-3">
+            Pre-loaded with sample data · No signup required · Resets daily
+          </p>
         </div>
       </div>
     </section>
@@ -448,7 +525,7 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: 'How do I subscribe to PharmaCore?',
-      answer: 'Simply choose your preferred plan from our pricing section to start your 30-day free trial. Complete the secure payment setup via Paystack, and you\'ll receive an onboarding link immediately. Our team will verify your pharmacy credentials and activate your account within 24 hours.',
+      answer: 'Choose your plan from our pricing section and complete payment via Paystack. You\'ll receive an access code instantly. Use it to register your pharmacy — your first 30 days are completely free. Your subscription begins on day 31, so you can explore the full product with zero risk.',
     },
     {
       question: 'What is the AI Consult Assistant?',
@@ -468,11 +545,15 @@ const FAQSection: React.FC = () => {
     },
     {
       question: 'What happens if my subscription expires?',
-      answer: 'You\'ll receive email reminders before expiration. If your subscription expires, you\'ll have a 3-day grace period before your account enters read-only mode - you can view data but not make changes. Reactivate anytime to restore full access. We retain your data for 90 days.',
+      answer: 'You\'ll receive reminder emails before your subscription expires. If it lapses, your account enters a 3-day grace period where you can view your data but not make changes. After 3 days without renewal, your account is suspended. Your data is retained for 90 days — renew anytime to restore full access.',
     },
     {
       question: 'Do you offer training and support?',
       answer: 'Yes! All plans include email support and access to our knowledge base. Pro plans get priority support, while Enterprise customers receive dedicated account management, custom training sessions, and 24/7 phone support.',
+    },
+    {
+      question: 'Can I try PharmaCore before paying?',
+      answer: 'Yes! Click \'Try Live Demo\' anywhere on this page to explore PharmaCore instantly — no account or payment needed. The demo is pre-loaded with sample pharmacy data so you can experience the full product including inventory management, POS, reports, and AI consult. Demo data resets daily.',
     },
   ];
 
@@ -538,6 +619,12 @@ const FinalCTA: React.FC = () => {
               Contact Sales
             </a>
           </div>
+          <div className="pt-2">
+            <a href="https://pharmacore.365health.online/demo" target="_blank" rel="noopener noreferrer" className="text-white text-sm hover:underline inline-flex items-center gap-1">
+              Or explore the live demo first
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -551,6 +638,7 @@ const PharmaCore: React.FC = () => {
       <PharmaCoreHero />
       <ProductOverview />
       <FeaturesSection />
+      <DemoHighlightSection />
       <HowItWorks />
       <PricingSection />
       <FAQSection />
