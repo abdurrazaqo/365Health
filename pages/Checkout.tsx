@@ -137,38 +137,54 @@ const Checkout: React.FC = () => {
   };
 
   const handlePay = () => {
-    if (!isFormValid || !planDetails) return;
+    if (!isFormValid || !planDetails) {
+      console.log('Form validation failed:', { isFormValid, planDetails });
+      return;
+    }
+
+    const publicKey = (import.meta as any).env.VITE_PAYSTACK_PUBLIC_KEY;
+    
+    if (!publicKey) {
+      console.error('Paystack public key not found');
+      setApiError('Payment configuration error. Please contact support.');
+      return;
+    }
 
     const reference = `PHC-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
     setPaystackRef(reference);
     setShowDismissibleWarning(false);
 
-    const publicKey = (import.meta as any).env.VITE_PAYSTACK_PUBLIC_KEY;
-
-    const paystack = new PaystackPop();
-    paystack.newTransaction({
-      key: publicKey,
-      email: formData.email,
-      amount: planDetails.amountKobo,
-      currency: 'NGN',
-      ref: reference,
-      metadata: {
-        custom_fields: [
-          { display_name: "Full Name", variable_name: "full_name", value: formData.fullName },
-          { display_name: "Phone Number", variable_name: "phone", value: formData.phone },
-          { display_name: "Pharmacy Name", variable_name: "pharmacy_name", value: formData.pharmacyName },
-          { display_name: "Plan", variable_name: "plan", value: params.plan },
-          { display_name: "Billing Cycle", variable_name: "billing_cycle", value: params.cycle },
-          { display_name: "Product", variable_name: "product", value: 'pharmacore' }
-        ]
-      },
-      onSuccess: (transaction: any) => {
-        performEdgeFunctionCall(transaction.reference);
-      },
-      onCancel: () => {
-        setShowDismissibleWarning(true);
-      }
-    });
+    try {
+      const paystack = new PaystackPop();
+      paystack.newTransaction({
+        key: publicKey,
+        email: formData.email,
+        amount: planDetails.amountKobo,
+        currency: 'NGN',
+        ref: reference,
+        metadata: {
+          custom_fields: [
+            { display_name: "Full Name", variable_name: "full_name", value: formData.fullName },
+            { display_name: "Phone Number", variable_name: "phone", value: formData.phone },
+            { display_name: "Pharmacy Name", variable_name: "pharmacy_name", value: formData.pharmacyName },
+            { display_name: "Plan", variable_name: "plan", value: params.plan },
+            { display_name: "Billing Cycle", variable_name: "billing_cycle", value: params.cycle },
+            { display_name: "Product", variable_name: "product", value: 'pharmacore' }
+          ]
+        },
+        onSuccess: (transaction: any) => {
+          console.log('Payment successful:', transaction);
+          performEdgeFunctionCall(transaction.reference);
+        },
+        onCancel: () => {
+          console.log('Payment cancelled by user');
+          setShowDismissibleWarning(true);
+        }
+      });
+    } catch (error) {
+      console.error('Paystack initialization error:', error);
+      setApiError('Failed to initialize payment. Please refresh and try again.');
+    }
   };
 
   const copyToClipboard = (text: string, type: 'code' | 'link') => {
@@ -420,7 +436,7 @@ const Checkout: React.FC = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+                  <div className="space-y-2">
                   <label className="text-xs font-bold text-dark-text/60 uppercase tracking-widest pl-1">Full Name</label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-dark-text/30">person</span>
@@ -430,7 +446,8 @@ const Checkout: React.FC = () => {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="John Doe"
-                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm outline-none"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                      style={{ fontSize: '16px' }}
                       required
                     />
                   </div>
@@ -446,7 +463,8 @@ const Checkout: React.FC = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="john@example.com"
-                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm outline-none"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                      style={{ fontSize: '16px' }}
                       required
                     />
                   </div>
@@ -466,7 +484,8 @@ const Checkout: React.FC = () => {
                       onChange={handleInputChange}
                       onBlur={handlePhoneBlur}
                       placeholder="08123456789"
-                      className={`w-full pl-12 pr-4 py-3 bg-gray-50 border ${errors.phone ? 'border-red-200 ring-1 ring-red-50' : 'border-gray-100'} rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm outline-none`}
+                      className={`w-full pl-12 pr-4 py-3 bg-gray-50 border ${errors.phone ? 'border-red-200 ring-1 ring-red-50' : 'border-gray-100'} rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none`}
+                      style={{ fontSize: '16px' }}
                       required
                     />
                   </div>
@@ -482,7 +501,8 @@ const Checkout: React.FC = () => {
                       value={formData.pharmacyName}
                       onChange={handleInputChange}
                       placeholder="365 Pharmacy"
-                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm outline-none"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                      style={{ fontSize: '16px' }}
                       required
                     />
                   </div>
@@ -511,16 +531,23 @@ const Checkout: React.FC = () => {
 
               <div className="space-y-6">
                 <button
+                  type="button"
                   onClick={handlePay}
                   disabled={!isFormValid || checkoutState === 'loading'}
                   className={`w-full py-4 rounded-xl font-black text-lg transition-all shadow-xl flex items-center justify-center gap-3 ${isFormValid && checkoutState !== 'loading'
-                      ? 'bg-primary text-white hover:bg-secondary hover:-translate-y-1 shadow-primary/20'
+                      ? 'bg-primary text-white hover:bg-secondary hover:-translate-y-1 shadow-primary/20 cursor-pointer'
                       : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
                     }`}
                 >
                   <span className="material-symbols-outlined text-2xl">lock</span>
                   Pay ₦{planDetails?.amountNaira.toLocaleString()} Securely
                 </button>
+
+                {!isFormValid && (formData.fullName || formData.email || formData.phone || formData.pharmacyName) && (
+                  <p className="text-[10px] text-center text-amber-600 font-bold animate-pulse">
+                    Please ensure all fields are correctly filled and terms are accepted
+                  </p>
+                )}
 
                 <div className="flex flex-col items-center gap-4 pt-2">
                   <div className="flex items-center gap-6 opacity-40 grayscale hover:grayscale-0 transition-all">

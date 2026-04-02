@@ -125,8 +125,11 @@ export function formatPhoneNumber(phone: string): string {
 
 // Validates Nigerian phone number format
 export function validateNigerianPhone(phone: string): boolean {
+  // Strip spaces, dashes, and parentheses
+  const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+  
   // Accepts 08XXXXXXXXX, 07XXXXXXXXX, 09XXXXXXXXX (11 digits)
   // Or +234XXXXXXXXXX (13 chars starting with +234 followed by 10 digits)
   const pattern = /^(0[789]\d{9}|\+234[789]\d{9})$/;
-  return pattern.test(phone);
+  return pattern.test(cleaned);
 }
