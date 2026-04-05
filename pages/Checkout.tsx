@@ -138,7 +138,7 @@ const Checkout: React.FC = () => {
 
   const handlePay = () => {
     if (!isFormValid || !planDetails) {
-      console.log('Form validation failed:', { isFormValid, planDetails });
+      console.log('Form validation failed');
       return;
     }
 
@@ -173,11 +173,11 @@ const Checkout: React.FC = () => {
           ]
         },
         onSuccess: (transaction: any) => {
-          console.log('Payment successful:', transaction);
+          console.log('Payment successful');
           performEdgeFunctionCall(transaction.reference);
         },
         onCancel: () => {
-          console.log('Payment cancelled by user');
+          console.log('Payment cancelled');
           setShowDismissibleWarning(true);
         }
       });

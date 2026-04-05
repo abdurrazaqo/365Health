@@ -18,35 +18,36 @@ const products: Product[] = [
       { icon: 'psychology', title: 'AI Consult Assistant', description: 'Intelligent drug interaction checks and dosage recommendations powered by AI.' },
     ]
   },
-  {
-    id: 'connect',
-    number: '02',
-    name: 'my365Pharmacy',
-    description: 'Online pharmacy aggregator connecting patients with verified pharmacies for seamless medication access.',
-    image: '/images/products/my365pharmacy.svg',
-    isComingSoon: true,
-    icon: 'local_pharmacy',
-    features: [
-      { icon: 'search', title: 'Pharmacy Discovery', description: 'Find and compare verified pharmacies near you with real-time availability.' },
-      { icon: 'shopping_cart', title: 'Easy Ordering', description: 'Order medications online and choose delivery or pickup options.' },
-      { icon: 'verified', title: 'Verified Network', description: 'Access only licensed and verified pharmacies for your safety.' },
-    ]
-  },
-  {
-    id: 'insight',
-    number: '03',
-    name: '365Insight',
-    description: 'Unlock hidden operational efficiencies with our Healthcare Analytics Platform.',
-    image: '/images/products/365insight.svg',
-    isComingSoon: true,
-    reverseLayout: true,
-    icon: 'monitoring',
-    features: [
-      { icon: 'dashboard', title: 'Real-time Dashboards', description: 'Live operational data visualization for immediate decision making.' },
-      { icon: 'leaderboard', title: 'KPIs & Operational Reports', description: 'Deep dive into clinical outcomes and financial performance.' },
-      { icon: 'bubble_chart', title: 'Data Visualization', description: 'Turn complex datasets into actionable visual insights for teams.' },
-    ]
-  }
+  // Temporarily hidden
+  // {
+  //   id: 'connect',
+  //   number: '02',
+  //   name: 'my365Pharmacy',
+  //   description: 'Online pharmacy aggregator connecting patients with verified pharmacies for seamless medication access.',
+  //   image: '/images/products/my365pharmacy.svg',
+  //   isComingSoon: true,
+  //   icon: 'local_pharmacy',
+  //   features: [
+  //     { icon: 'search', title: 'Pharmacy Discovery', description: 'Find and compare verified pharmacies near you with real-time availability.' },
+  //     { icon: 'shopping_cart', title: 'Easy Ordering', description: 'Order medications online and choose delivery or pickup options.' },
+  //     { icon: 'verified', title: 'Verified Network', description: 'Access only licensed and verified pharmacies for your safety.' },
+  //   ]
+  // },
+  // {
+  //   id: 'insight',
+  //   number: '03',
+  //   name: '365Insight',
+  //   description: 'Unlock hidden operational efficiencies with our Healthcare Analytics Platform.',
+  //   image: '/images/products/365insight.svg',
+  //   isComingSoon: true,
+  //   reverseLayout: true,
+  //   icon: 'monitoring',
+  //   features: [
+  //     { icon: 'dashboard', title: 'Real-time Dashboards', description: 'Live operational data visualization for immediate decision making.' },
+  //     { icon: 'leaderboard', title: 'KPIs & Operational Reports', description: 'Deep dive into clinical outcomes and financial performance.' },
+  //     { icon: 'bubble_chart', title: 'Data Visualization', description: 'Turn complex datasets into actionable visual insights for teams.' },
+  //   ]
+  // }
 ];
 
 const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
@@ -54,9 +55,6 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   
   const content = (
     <div className="space-y-4 md:space-y-6">
-      <div className="text-primary font-bold text-xs tracking-[0.2em] uppercase">
-        Product {product.number}
-      </div>
       <h2 className="text-3xl md:text-4xl font-black text-dark-text tracking-tight">
         {product.name}
       </h2>
