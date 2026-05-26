@@ -50,6 +50,18 @@ const Checkout: React.FC = () => {
     }
 
     setParams({ plan, cycle, product });
+    
+    // Check environment variables
+    const publicKey = (import.meta as any).env.VITE_PAYSTACK_PUBLIC_KEY;
+    const edgeFunctionUrl = (import.meta as any).env.VITE_PHARMACORE_EDGE_FUNCTION_URL;
+    
+    if (!publicKey || !edgeFunctionUrl) {
+      console.error('Missing environment variables:', {
+        hasPublicKey: !!publicKey,
+        hasEdgeFunctionUrl: !!edgeFunctionUrl
+      });
+      setApiError('Payment system configuration is incomplete. Please contact support.');
+    }
   }, []);
 
   const planDetails = useMemo(() => {
@@ -145,8 +157,9 @@ const Checkout: React.FC = () => {
     const publicKey = (import.meta as any).env.VITE_PAYSTACK_PUBLIC_KEY;
     
     if (!publicKey) {
-      console.error('Paystack public key not found');
-      setApiError('Payment configuration error. Please contact support.');
+      console.error('Paystack public key not found in environment variables');
+      setApiError('Payment system is not configured. Please contact support at hello@365health.online');
+      alert('Payment configuration error. The VITE_PAYSTACK_PUBLIC_KEY environment variable is missing. Please contact support.');
       return;
     }
 
@@ -155,6 +168,10 @@ const Checkout: React.FC = () => {
     setShowDismissibleWarning(false);
 
     try {
+      if (typeof PaystackPop === 'undefined') {
+        throw new Error('Paystack library not loaded');
+      }
+      
       const paystack = new PaystackPop();
       paystack.newTransaction({
         key: publicKey,
@@ -183,7 +200,9 @@ const Checkout: React.FC = () => {
       });
     } catch (error) {
       console.error('Paystack initialization error:', error);
-      setApiError('Failed to initialize payment. Please refresh and try again.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      setApiError(`Failed to initialize payment: ${errorMessage}. Please refresh and try again.`);
+      alert(`Payment initialization failed: ${errorMessage}`);
     }
   };
 

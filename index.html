@@ -96,11 +96,9 @@
     
     <!-- Preload critical fonts to prevent FOUC -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" as="style">
     
     <!-- Load fonts with display=swap to prevent invisible text -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -176,7 +174,7 @@
         
         /* Prevent Material Icons FOUC */
         .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
+            font-family: 'Material Icons Outlined', 'Material Icons';
             font-weight: normal;
             font-style: normal;
             font-size: 24px;
@@ -296,7 +294,7 @@
         // Detect when fonts are loaded to prevent FOUC
         if ('fonts' in document) {
             Promise.all([
-                document.fonts.load('400 24px "Material Symbols Outlined"'),
+                document.fonts.load('400 24px "Material Icons Outlined"'),
                 document.fonts.load('400 16px "Inter"'),
                 document.fonts.load('700 16px "Inter"'),
                 document.fonts.load('900 16px "Inter"')
